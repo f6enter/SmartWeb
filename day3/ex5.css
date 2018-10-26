@@ -1,0 +1,6 @@
+@charset 'utf-8';
+
+.hidden{
+    /* 숨겨지는 글자 공간은 있지만, 글자는 숨김*/
+    visibility: hidden;
+}
