@@ -1,0 +1,25 @@
+@charset 'utf-8';
+
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    margin: 0px;
+}
+
+.top {
+    background-color: yellow;
+    height: 100px;
+    width :100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* left: 50px;
+    right: 0; */
+}
+
+.bottom {
+    background-color: rgb(236, 235, 209);
+    height: 2000px;
+}
+ 
