@@ -10,6 +10,10 @@
     font-family: Dotum,'돋움',Helvetica,"Apple SD Gothic Neo",sans-serif;
 }
 
+ul, ol {
+    list-style: none;
+}
+
 /* div{
     border: solid 1px black;
 } */
@@ -540,7 +544,7 @@
     padding: 15px 0 0 16px;
 }
 
-.box2-inner::after { /* 부모태그에 써줘야함. */
+.box2-inner::after { /* float에 높이를 설정하면 부모 가 없어지기 때문에 부모태그에 써줘야함. */
     clear:both;
     content:"";
     display: block;
@@ -669,7 +673,7 @@
     letter-spacing: -1px;
 }
 
-.box3-inner2,
+.api-list,
 .box3-menu::after,
 .box3-item3::after,
 .box3-item2::after {
@@ -750,15 +754,74 @@
     background-position: -28px -193px;
 }
 
-
-
-
 .box3-inner2 {
-    height: 200px;
-    position: relative;
+	/* height: 200px; */
+	position: relative;
+}
+
+.api-list {
+    width: 104%;
+    height: 199px;
+    overflow: hidden;
+    font-size: 0;
+}
+
+ul.api-list>li {
+    width: 123px;
+    height: 67px;
+    z-index: 0;
+    padding: 21px 0 22px;
+    border-right: 1px solid #f1f3f6;
+    float: left;
+}
+
+ul.api-list>li>a>img {
+    height: 24px;
+    width: auto;
+}
+
+ul.api-list>li>a {
+    text-align: center;
+    display: block;
+}
+
+.border-right {
+	width: 1px;
+	height: 199px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: #f1f3f6;
+	z-index: 1;
+}
+
+.border-center1,
+.border-center2 {
+	width: 738px;
+	height: 1px;
+	position: absolute;
+	background-color: #f1f3f6;
+	z-index: 1;
+	left: 0;
+}
+
+.border-center1 {
+	top: 66px;
+}
+
+.border-center2 {
+	bottom: 66px;
 }
 
 
+
+
+
+
+
+
+
+/* 
 .box3-inner2>div {
     position: relative;
     float: left;
@@ -809,7 +872,7 @@
     display: inline-block;
 }
 
-
+ */
 
 .box4{
     height: 120px;
