@@ -1,0 +1,87 @@
+@charset 'utf-8';
+
+* {
+	margin: 0;
+	padding: 0;	
+	box-sizing: border-box;
+}
+
+.box {
+	width: 100%;
+	height: 300px;
+	border: 1px solid red;
+}
+
+/* 1번째 - max-width를 이용한 방법 (순서에 영향이 있음) 기본은 black변경 */
+/*
+@media(max-width:1000px) {
+	.box {
+		border-color: green;
+	}
+}
+
+@media(max-width:750px) {
+	.box {
+		border-color: blue;
+	}
+}
+
+@media(max-width:500px) {
+	.box {
+		border-color: red;
+	}
+}
+*/
+
+
+/* 2번째 -> min-width를 이용한 방법 (순서에 영향이 있음) 기본은 red변경 */
+/*
+@media(min-width:501px) {
+	.box {
+		border-color: blue;
+	}
+}
+
+@media(min-width:751px) {
+	.box {
+		border-color: green;
+	}
+}
+
+@media(min-width:1001px) {
+	.box {
+		border-color: black;
+	}
+}
+*/
+
+
+/* 3번째 -> min-width/max-width를 이용한 방법 (순서에 영향이 없음) 500px이하는 신경쓰지 않아도됨 */
+
+@media(min-width:501px) and (max-width:750px) {
+	.box {
+		border-color: blue;
+	}
+}
+
+@media(min-width:751px) and (max-width:1000px) {
+	.box {
+		border-color: green;
+	}
+}
+
+/* 1001이상은 모두 black이기때문에 max-width는 필요없음 */
+@media(min-width:1001px) { 
+	.box {
+		border-color: black;
+	}
+}
+
+
+
+
+
+
+
+
+
