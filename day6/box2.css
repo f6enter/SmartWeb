@@ -1,0 +1,108 @@
+@charset 'utf-8';
+
+* {
+	margin: 0;
+	padding: 0;	
+	box-sizing: border-box;
+}
+
+.container {
+	width: 100%;
+	height: 300px;
+	border: 1px solid black;
+	font-size: 0;
+}
+
+/*
+	float를 쓰지 않고, 부모의 높이를 지정해서 설정 하는 경우에는 font-size:0 해줘야함.
+	float: left를 쓰지 않는경우 contents가 들어갔을때 밀리는 현상이 발생.
+	float: left쓸때 부모에게 ::after 설정.
+*/
+
+.box1,
+.box2,
+.box3 {
+	height: 100%;
+	border: 1px solid black;
+	display: inline-block;
+}
+
+
+@media(min-width:1001px) {
+	.box1,
+	.box2,
+	.box3 {
+		width: calc(100% / 3);
+		border: 1px solid black;
+	}
+
+}
+
+@media(min-width:501px) and (max-width:1000px) {
+	.box1,
+	.box2,
+	.box3 {
+		width: 50%;
+		border: 1px solid black;
+	}
+	.box3 {
+		display: none;
+	}
+}
+
+@media(max-width:500px) {
+	.box1,
+	.box2,
+	.box3 {
+		width: 100%;
+		border: 1px solid black;
+	}
+	.box3,
+	.box2 {
+		display: none;
+	}
+}
+
+
+/* 강사님 ver.
+
+div {
+	border: 1px solid black;
+}
+
+.container::after {
+	clear: both;
+	content:"";
+	display: black;
+}
+
+.box1,
+.box2,
+.box3 {
+	width: calc(100% / 3);
+	height: 200px
+	display: inline-block;
+	float: left;
+}
+
+@media(max-width:500px) {
+	.box1 {
+		width: 100%
+	}
+	.box2,
+	.box3 {
+		display: none;
+	}
+}
+
+@media(max-width:501px) and (min-width:1000px){
+	.box1,
+	.box2 {
+		width: 50%
+	}
+	.box3 {
+		display: none;
+	}
+} */
+
+
