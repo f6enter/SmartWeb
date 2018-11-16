@@ -1,0 +1,162 @@
+@charset 'utf-8';
+
+/* 
+	크기가 768px이하이면 햄버거 메뉴를
+	769px 이상이면 일반 메뉴를 출력.
+*/
+
+/* 강사님 ver.
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-size: 20px;
+}
+
+ul, li {
+	list-style: none;
+	text-align: center;
+}
+
+li {
+	display: inline-block;
+
+}
+
+.nav {
+	height: 40px;
+	background-color:aquamarine;
+}
+
+.menu li{
+	height: 40px;
+	line-height: 40px;
+}
+
+.ham-in {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	font-size: 25px;
+	color: white;
+	cursor: pointer;
+}
+
+.fa-bars {
+	line-height: 40px;
+}
+
+.menu {
+	display: block;
+}
+
+.ham-menu{
+	display: none;
+	padding: 0 9px;
+}
+
+.sub-menu {
+	position: absolute;
+	top: 40px;
+	left: 0;
+
+}
+
+
+@media (max-width:769px){
+	.ham-menu{
+		display: block;
+	}
+	.menu {
+		display: none;
+	}
+} */
+
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-size: 20px;
+}
+
+ul, li {
+	list-style: none;
+}
+
+.container {
+	width: 100%;
+	height: 50px;
+	background-color: skyblue;
+	text-align: center;
+	position: relative;
+}
+
+.ham-ul {
+	
+}
+
+.ham-li {
+	height: 50px;
+	display: inline-block;
+	margin: auto 50px;
+	color: #fff;
+	line-height: 50px;
+
+}
+
+.ham-box {
+	width: 50px;
+	height: 48px;
+	display: inline-block;
+	vertical-align: top;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.ham-menu {
+	display: block;
+	width: 22px;
+	height: 17px;
+	position: absolute;
+	top: 16px;
+	left: 14px;
+	background-image: url(https://s.pstatic.net/static/www/m/2018/sp_main_v181115a.png);
+	background-position: -599px -275px;
+	background-size: 655px 642px;
+}
+
+
+.ham-menu-ul{
+	position: absolute;
+	top: 50px;
+	left: 0;
+	background-color: skyblue;
+	color: white;
+	width: 100px;
+}
+
+.ham-menu-li {
+	padding: 10px 0;
+}
+
+.menu:hover{
+
+}
+
+
+
+@media (min-width:769px) {
+	.menu,
+	.ham-menu-ul {
+		display: none;
+	}
+}
+
+@media (max-width:768px) {
+	.ham-ul {
+		display: none;
+	}
+}
