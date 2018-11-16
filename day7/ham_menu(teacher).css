@@ -1,0 +1,92 @@
+@charset 'utf-8';
+
+/* 
+	크기가 768px이하이면 햄버거 메뉴를
+	769px 이상이면 일반 메뉴를 출력.
+*/
+
+/* 강사님 ver. */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-size: 20px;
+}
+
+ul, li {
+	list-style: none;
+}
+
+li {
+	display: inline-block;
+	text-align: center;
+}
+
+.nav {
+	height: 40px;
+	background-color:sandybrown;
+}
+
+.menu li{
+	height: 40px;
+	line-height: 40px;
+	margin: auto 50px;
+}
+
+.ham-in {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	font-size: 25px;
+	color: white;
+	cursor: pointer;
+}
+
+.fa-bars {
+	line-height: 40px;
+}
+
+
+
+.sub-menu {
+	position: absolute;
+	top: 40px;
+	left: 0;
+	border-bottom: none;
+	border: 1px solid black;
+	border-bottom: none;
+	display: none;
+	background-color:sandybrown;
+}
+
+.sub-menu li {
+	display: block;
+	border-bottom: 1px solid black;
+	width: 200px;
+	height: 50px;
+	line-height: 50px;
+}
+
+
+
+.menu {
+	display: block;
+	text-align: center;
+}
+
+.ham-menu{
+	display: none;
+	padding: 0 9px;
+}
+
+@media (max-width:769px){
+	.ham-menu{
+		display: block;
+	}
+	.menu {
+		display: none;
+	}
+	.sub-menu {
+		display: block;
+	}
+}
