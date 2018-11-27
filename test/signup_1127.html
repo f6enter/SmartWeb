@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="signup.css">
+	<title>회원가입</title>
+</head>
+<body>
+	<h1>회원가입</h1>
+	<form action="">
+		<div><input type="text" id="id" name="id" placeholder="아이디"></div>
+		<button onclick="checkId()" type="button">아이디검사</button>
+		<div id="id_error"></div>
+
+		<div><input type="text" id="pw" name="pw" placeholder="비밀번호"></div>
+		<button onclick="checkPw()" type="button">비밀번호검사</button>
+		<div id="pw_error"></div>
+
+		<div class="gender-style">
+			<input type="radio" name="gender" value="남성" checked>남성
+			<input type="radio" name="gender" value="여성">여성
+		</div>
+		<div><button type="submit" name="signup">회원가입</button></div>
+		
+	</form>
+
+	<script>
+
+			function checkId() {
+			var text = document.getElementById('id').value;
+			var regex = /^[A-z][A-z0-9]{4,9}$/;
+			clearErrorMessageId();
+
+			if((text.length<5)||(text.length>10)) {
+				check_id_error('아이디는 5이상~10이하입니다.');
+				//alert('아이디는 5이상~10이하입니다.');
+				console.log(text.length);
+				return false;
+			}
+
+			if(regex.test(text)){
+				alert('정규표현식에 맞습니다.');
+				return true;
+			} else {
+				alert('정규표현식에 맞지 않습니다.');
+				return false;
+			}
+		}
+
+		function check_id_error(message) {
+			var span = document.createElement('span');
+			var spantext = document.createTextNode(message);
+			span.appendChild(spantext);
+			var div = document.getElementById('id_error');
+      div.appendChild(span);
+		}
+		
+		function clearErrorMessageId() {
+			var div = document.getElementById('id_error');
+			var span = document.querySelector('#id_error>span');
+			if(span != null)
+			div.removeChild(span);
+		}
+
+
+
+
+
+//---------Pw----------------------------------------------------
+			function checkPw() {
+				var text = document.getElementById('pw').value;
+				var regex = /^[A-z0-9]*([A-z]\d)|(\d[A-z])[A-z0-9]*$/;
+				clearErrorMessagePw()
+
+			if((text.length<8)||(text.length>20)) {
+				check_pw_error('비밀번호는 8이상~20이하입니다.');
+				//alert('비밀번호는 8이상~20이하입니다.');
+				//console.log(text.length);
+				return false;
+			}
+
+			if(regex.test(text)){
+				alert('정규표현식에 맞습니다.');
+				return true;
+			} else {
+				alert('정규표현식에 맞지 않습니다.');
+				return false;
+			}
+		}
+
+		function check_pw_error(message) {
+			var span = document.createElement('span');
+			var spantext = document.createTextNode(message);
+			span.appendChild(spantext);
+			var div = document.getElementById('pw_error');
+			div.appendChild(span);
+		}
+		
+		function clearErrorMessagePw() {
+			var div = document.getElementById('pw_error');
+			var span = document.querySelector('#pw_error>span');
+			if(span != null)
+			div.removeChild(span);
+		}
+
+		
+	</script>
+</body>
+</html>
