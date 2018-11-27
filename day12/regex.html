@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="pw">
+	<button onclick="check()">검사</button>
+	<div id="pw_error"></div>
+	<div id="length">비밀번호는 8이상~20이하입니다.</div>
+	<div id="regex">정규표현식에 맞지 않습니다.</div>
+	
+
+	<script>
+		clearBox();
+		function clearBox() {
+			document.getElementById('length').style.display = 'none';
+			document.getElementById('regex').style.display = 'none';
+		}
+
+		function showBox(id) {
+			document.getElementById(id).style.display = 'block';
+		}
+
+
+		// var text = document.getElementById('pw').value;
+		function check2(message) {
+			//var regexdiv = document.getElementById('pw_error');
+			// span 태그를 생성
+			var regexspan = document.createElement('span');
+			// text 노드를 만들어 해당 text에 message를 입력
+			var regextext = document.createTextNode(message);
+			// span 태그에 테스트 노드를 붙인다.
+			regexspan.appendChild(regextext);
+			// id가 pw_error 요소의 객체 정보를 가져오고
+			var regexdiv = document.getElementById('pw_error');
+			// 해당 객체에 span태그를 붙인다.
+      regexdiv.appendChild(regexspan);
+		}
+
+		
+		function clearErrorMessage() {
+			// id가 pw_error인 요소의 객체정보1을 가져온다.
+			var regexdiv = document.getElementById('pw_error');
+			// id가 pw_error인 요소안에있는 span의 객체정보2를 가져온 후
+			var regexspan = document.querySelector('#pw_error>span');
+			// 객체 정보1에서 객체정보2를 제거한다.
+			if(regexspan != null)
+			regexdiv.removeChild(regexspan);
+		}
+
+		function check() {
+			var text = document.getElementById('pw').value;
+			var regex = /^[A-z0-9]*([A-z]\d)|(\d[A-z])[A-z0-9]*$/;
+			clearErrorMessage();
+
+			//alert(text);
+
+			if((text.length<8)||(text.length>20)) {
+				check2('비밀번호는 8이상~20이하입니다.');
+				//alert('비밀번호는 8이상~20이하입니다.');
+				//console.log(text.length);
+				return false;
+			}
+
+			if(regex.test(text)){
+				alert('정규표현식에 맞습니다.');
+				return true;
+			} else {
+				alert('정규표현식에 맞지 않습니다.');
+				return false;
+			}
+		}
+
+	// 	function check_2() {
+	// 	var text = document.getElementById('pw').value;
+	// 	var regex = /^[A-z0-9]*([A-z]\d)|(\d[A-z])[A-z0-9]*$/;
+	// 	clearBox();
+
+	// 	//alert(text);
+
+	// 	if((text.length<8)||(text.length>20)) {
+	// 		showBox('length');
+	// 		check2('비밀번호는 8이상~20이하입니다.');
+	// 		//alert('비밀번호는 8이상~20이하입니다.');
+	// 		console.log(text.length);
+	// 		return false;
+	// 	}
+
+	// 	if(regex.test(text)){
+	// 		alert('정규표현식에 맞습니다.');
+	// 		return true;
+	// 	} else {
+	// 		alert('정규표현식에 맞지 않습니다.');
+	// 		return false;
+	// 	}
+	// }
+
+
+	</script>
+
+</body>
+</html>
