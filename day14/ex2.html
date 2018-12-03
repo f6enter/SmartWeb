@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- 스크립트 가져오는 순서 매우 중요 -->
+	<script src="//code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="ex2.js"></script>
+	<title>복습2</title>
+	<style>
+		.display-none {
+			display: none;
+		}		
+	</style>
+</head>
+<body>
+	<!--
+		1. 화면에 글이 출력되어 있는 상태에서 버튼을 클릭하면 출력된 글이 사라지도록 작성하세요.
+				- 클릭 이벤트 처리
+				- 글이 사라지도록 처리 (다양한 방법들이 있음)
+		2. 화면에 글이 출력되어 있는 상태에서 버튼을 클릭하면 출력된 글이 사라지고,
+			 사라진 상태에서 버튼을 클릭하면 글이 다시 출력되도로고 작성하세요.
+				- 클릭 이벤트 처리
+				- 글이 사라지도록 처리 (다양한 방법들이 있음)		 
+	-->
+	<!-- 강사님 ver. -->
+	<p>안녕하세요.</p>
+	<button id="btn1">방법1</button>
+	<button id="btn2">방법2</button>
+	<button id="btn3">방법3</button>
+
+	
+	<div class="text">김은정</div>
+	<button class="btn">버튼</button>
+
+	<script>
+		$(document).ready(function(){
+			// 강사님 ver1.
+			// css속성 display를 none으로 만듬
+			$('#btn1').click(function(){
+				var display = $('p').css('display'); // display정보를 가져와 변수에 저장.
+				if(display == 'block')
+					$('p').css('display', 'none');
+				else
+					$('p').css('display', 'block');
+			});
+
+			// addClass()를 이용하여 display-none 클래스를 등록
+			$('#btn2').click(function(){
+				//$('p').addClass('display-none');
+				//$('p').toggleClass('display-none'); toggleClass() 클릭할 때 마다 text 보여주고, 숨기기
+				var className = $('p').attr('class');
+				console.log(className);
+				// indexOf는 문자열에 매개변수 문자열이 있는지 없는지 알려주는 함수.
+				// 있으면 매개변수 문자열의 첫글자가 있는 위치를 알려주고 없으면 -1을 반환.
+				if(className == undefined || className.indexOf('display-none') < 0)
+					$('p').addClass('display-none');
+				else
+					$('p').removeClass('display-none');
+			});
+
+			// hide()를 이용하여 해당 객체를 숨김
+			$('#btn3').click(function(){
+				$('p').hide();
+				//$('p').toggle(); toggle() 클릭할 때 마다 text 보여주고, 숨기기
+			});
+
+			// 내 ver.
+			$('.btn').click(function(){
+				$('.text').toggleClass('display-none');
+			});
+		});
+	</script>
+	
+</body>
+</html>
