@@ -1,0 +1,37 @@
+@charset 'utf-8';
+
+ul, li {
+	list-style: none;
+}
+
+.nav_li {
+	display: inline-block;
+}
+
+.ham_img {
+	position: relative;
+}
+
+.ham_img_a {
+	top: 10px;
+	left: 40px;
+	position: absolute;
+}
+
+.fas {
+	font-size: 20px;
+	color: aqua;
+}
+
+@media (min-width:641px) {
+	.ham_img,
+	.ham_nav_ul {
+		display: none;
+	}
+}
+
+@media (max-width:640px) {
+	.nav_ul {
+		display: none;
+	}
+}
