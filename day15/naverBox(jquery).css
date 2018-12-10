@@ -1004,9 +1004,11 @@ ul.api-list>li>a {
 }
 
 /* 공통 클래스들 */
+ul.api-list>li>div.display-block,
 .real-search-box:hover,
 #auto-box.display-block,
 .sub-menu.display-block,
+.api-list-in.display-block,
 .display-block {
 	display: block;
 }
@@ -1106,4 +1108,69 @@ ul.api-list>li>a {
 	margin: 0 auto;
 	height: 100%;
 }
+/* 
+.api-list-in>a {
+	display: none;
+	background-color: #fff;
+	text-align: center;
+}
 
+ul.api-list>li:hover {
+	background-color: red;
+}
+
+.btn1.display-none,
+.display-none {
+	display: none;
+}
+
+.btn2,
+.btn3 {
+	display: inline-block;
+	margin-right: -5px;
+	padding: 7px 0;
+	width: 34px;
+	height: 100%;
+	border: 1px solid #e3e7ee;
+	background-color: #fff;
+	color: #222;
+	text-decoration: none;
+	letter-spacing: -1px;
+	font-size: 12px;
+	line-height: 14px;
+}	
+
+.btn3 {
+	margin-right: 0;
+	width: 57px;
+} */
+
+/* 강사님ver. */
+
+
+ul.api-list>li:hover {
+	background-color: #f9fafc;
+	/* background-color: red; */
+}
+
+.api-list>li>div {
+	display: none;
+	width: 95px;
+	margin: 0 auto;
+	background-color: white;
+}
+
+ul.api-list>li>a.display-none,
+.display-none {
+	display: none;
+}
+
+.box5-botton1 {
+	background-color: #000;
+	height: 100%;
+}
+
+.box5-botton2 {
+	background-color: red;
+	height: 100%;
+}

@@ -50,8 +50,25 @@ $(document).ready(function(){
 		$('.real-search-box').toggleClass('display-block');
 	});
 
-	// $('.real-search-box').hover(function(){
-	// 	$(this).toggleClass('display-block');
+
+	// $('.api-item').hover(function(){
+	// 	$('.api-list-in').toggleClass('display-block');
+	// 	$('.btn1').toggleClass('display-none');
 	// });
+
+	$('.api-list>li').hover(function(){
+		//$('.api-list>li>a').toggleClass('display-none');
+		$(this).children('a').toggleClass('display-none');
+		//$('.api-list>li>div').toggleClass('display-block');
+		$(this).children('div').toggleClass('display-block');
+	});
+
+	$('.box5-next').click(function(){
+		$('.box5-botton1').css('display','none');
+		$('.box5-botton2').css('display','block');
+		$('.color-black').text('2');
+		$('.location').text('뉴스');
+	});
+	
 
 });
