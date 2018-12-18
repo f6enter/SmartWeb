@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+	<title>Document</title>
+</head>
+<style>
+	div {
+		width: 100px;
+		height: 100px;
+		border: 1px solid black;
+		display: inline-block;
+		font-size: 30px;
+		line-height: 90px;
+		text-align: center;
+	}
+	.checked {
+		background-color: red;
+	}
+</style>
+<body>
+	<!-- 클릭 하면 배경색이 변하고 -> 바뀐 배경색이 3개 이상이면 클릭 되지 않도록 -->
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+	<div>6</div>
+	<script>
+		// // 배열 안쓰고 하는 방법.
+		// $('div').click(function(){
+		// 	// checked 클래스를 가진 객체의 객수
+		// 	var checkedCnt = $('.checked').length;
+		// 	// 최대 선택 갯수
+		// 	var maxCnt = 3;
+		// 	// 선택된 갯수가 최대 갯수가 아니면 토글을 하고
+		// 	if(checkedCnt < maxCnt) {
+		// 		$(this).toggleClass('checked');
+		// 	} else {
+		// 		$(this).removeClass('checked');
+		// 		// 클릭한 클래스에 checked 클래스가 없으면
+		// 		if($(this).prop('class').indexOf('checked') == -1)
+		// 		alert('최대 3개까지 선택할 수 있습니다.');
+		// 	}
+		// });
+		
+		// 배열을 쓰고 하는 방법
+		var arr = [];
+		$('div').click(function(){
+			var maxCnt = 3;
+			var value = $(this).text();
+			// 선택 되어 있지 않은 박스를 선택 했을 때
+			if(arr.indexOf(value) == -1 ) {
+				// 최대 갯수를 넘어가지 않았을 때
+				if (arr.length < maxCnt){
+					// 해당 값을 배열에 추가
+					arr.push(value);
+					// 배경색 변경
+					$(this).addClass('checked');
+				} else {
+					alert('최대 3개까지 선택할 수 있습니다.');
+				}
+			// 선택된 박스를 다시 선택 했을 때	
+			} else {
+				arr.splice(arr.indexOf(value),1);
+				console.log(arr)
+				//$(this).removeClass('checked');
+				$('div').removeClass('checked');
+				$('div').each(function(){
+					for(var i = 0; i<arr.length; i++){
+						if($(this).text() == arr[i])
+						$(this).addClass('checked');
+					}
+				})
+			}
+		});
+
+
+
+
+
+		// $(document).ready(function(){
+		// 	$('div').click(function(){
+		// 		var selectedBox = [];
+		// 		var i = 0;
+		// 		$(this).each(function(){
+		// 			selectedBox[i] = $(this).prop('backgronund-color');
+		// 			// if( ) {
+		// 			// 	$(this).css('backgronund-color','white');
+		// 			// } 
+		// 		});
+
+		// 		$(this).toggleClass('checked');
+		// 	});
+		// });
+	</script>
+</body>
+</html>
