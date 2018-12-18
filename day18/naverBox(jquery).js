@@ -8,12 +8,13 @@ $(document).ready(function(){
 
 	$('.item4').click(function(){
 		// 접기 또는 더보기 버튼을 클릭하면 메뉴에 있는 배열을 임시 배열에 저장한다.
+		// 접기 버튼 눌렀을 때 확인을 거치지 않은 선택된 메뉴들을 제거하는 작업.
 		selectedMenu = menuArr2.slice();
 		menu();
 		checkMenu();
-		closeSubMenu();
+		closeSubMenu(); //closeSubMenu() 함수 안에 displayMenu() 포함되어있다.
 		initCheck();
-		displayMenu();
+		//displayMenu();
 		// $(this).toggleClass('item4-1');
 		// $('.sub-menu').toggleClass('display-block');
 		// $('.sub-menu-background').toggleClass('display-block');
@@ -285,6 +286,8 @@ $(document).ready(function(){
 
 
 	// MenuArr2에서 저장된 값들만 check가 되도록 하는 함수
+	// checkMenu() 함수는 선택된 사용자 메뉴의 값을 이용하여 체크박스의 체크 여부를 결정 2018-12-18
+	// 사용자 설정에 체크된 메뉴만 체크되도록 해줌.
 	function checkMenu() {
 		$('.sub-menu-div input[type="checkbox"]').each(function(){
 			$(this).prop('checked', '');
@@ -298,28 +301,51 @@ $(document).ready(function(){
 
 	function closeSubMenu(){
 		displayMenu();
+		// 더보기 버튼 클릭시 체크박스가 보이지 않게 해주는 기능
 		$('.sub-menu-div input[type="checkbox"]').each(function(){
 			$(this).addClass('display-none');
 		});
-		$('.all-service').removeClass('display-none');
-		$('.menu-setting').removeClass('display-none');
-		$('.ok').addClass('display-none');
-		$('.init').addClass('display-none');
-		$('.cancel').addClass('display-none');
+		subDetailMenu(0);
+		// $('.all-service').removeClass('display-none');
+		// $('.menu-setting').removeClass('display-none');
+		// $('.ok').addClass('display-none');
+		// $('.init').addClass('display-none');
+		// $('.cancel').addClass('display-none');
 	}
 
+	// subDetailMenu(toggle) 함수는 더보기 버튼 클릭시 오른 쪽 상단 보이는 메뉴를 결정하는 함수로, 
+	// 0이면 서비스 전체보기 메뉴설정이 보이고, 1이면 초기화, 확인, 취소가 보임.
+	function subDetailMenu(toggle){
+		if(toggle==0){
+			$('.all-service').removeClass('display-none');
+			$('.menu-setting').removeClass('display-none');
+			$('.ok').addClass('display-none');
+			$('.init').addClass('display-none');
+			$('.cancel').addClass('display-none');
+		}else {
+			$('.all-service').addClass('display-none');
+			$('.menu-setting').addClass('display-none');
+			$('.ok').removeClass('display-none');
+			$('.init').removeClass('display-none');
+			$('.cancel').removeClass('display-none');
+		}
+	}
+
+	// menu()함수는 더보기/접기 버튼
 	function menu() {
 		$('.item4').toggleClass('item4-1');
 		$('.sub-menu').toggleClass('display-block');
 		$('.sub-menu-background').toggleClass('display-block');
 	}
 
+	// 더보기 눌렀을 때 체크박스가 없는 라벨을 클릭시 아무 동작을 하지 않도록 해주는 함수.
 	function initCheck() {
 		$('.sub-menu-div label').each(function(){
 			$(this).prop('for','');
 		});
 	}
 
+	// 라벨과 체크를 연결해줌.
 	function createCheck() {
 		var i = 0;
 		var checkbox = $('.sub-menu-div input[type=checkbox]');
@@ -328,7 +354,9 @@ $(document).ready(function(){
 		});
 	}
 
-	function displayMenu() { // 선택(체크)된 메뉴를 표시하고, 선택되지 않은 메뉴는 보이지 않게함(ej)
+	// 선택(체크)된 메뉴를 표시하고, 선택되지 않은 메뉴는 보이지 않게함(ej)
+	// displayMenu() 함수는 사용자가 선택한 메뉴 또는 기본 메뉴를 출력하는 기능.
+	function displayMenu() { 
 		var i = 0;
 		if(menuArr2.length == 0) {
 			$('.item2-1').each(function(){
