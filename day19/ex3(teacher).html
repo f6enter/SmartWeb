@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+	<title>Document</title>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+		.modal-background {
+			min-height: 100vh;
+			background-color: black;
+			opacity: 0.7;
+			/* position: absolute;는 가로 지정 해주어야 함. */
+			position: absolute;  
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 1;
+			display: none;
+		}
+		.modal {
+			position: absolute;
+			width: 500px;
+			height: 300px;
+			top: calc(50% - 150px);
+			left: calc(50% - 250px);
+			background-color: white;
+			z-index: 2;
+			display: none;
+		}
+		.modal-header {
+			height: 60px;
+			border-bottom: 1px solid black;
+		}
+		.modal-main {
+			height: 180px;
+			border-bottom: 1px solid black;
+			padding: 20px;
+		}
+		.modal-footer {
+			height: 60px;
+		}
+		.modal-close {
+			font-size: 50px;
+			line-height: 60px;
+			float: right;
+			margin-right: 20px; 
+		}
+		.row>div {
+			float: left;
+		}
+		.row>div::after {
+			display: block;
+			content: "";
+			clear: both;
+		}
+		input {
+			height: 50px;
+			width: 330px;
+			margin-bottom: 10px; 
+		}
+		.login {
+			height: 110px;
+			width: 110px;
+			margin-left: 20px;
+			text-align: center;
+			font-size: 30px;
+			line-height: 100px; 
+		}
+		/* form{
+			position: relative;
+		}
+		#btn {
+			position: absolute;
+			top: 2px;
+			left: 180px;
+			height: 44px;
+		} */
+	</style>
+</head>
+<body>
+	<button class="btn-login">로그인</button>
+	<div class="modal-background"></div>
+	<div class="modal">
+		<div class="modal-header"><i class="fas fa-times modal-close"></i></div>
+		<div class="modal-main">
+			<form action="" method="post">
+				<div class="row">
+					<div>
+						<div><input type="text" id="id" name="id"></div>
+						<div><input type="password" id="pw" name="pw"></div>
+					</div>
+					<div><button class="login">로그인</button></div>
+				</div>				
+			</form>
+		</div>
+		<div class="modal-footer"></div>
+	</div>
+
+	<script>
+		$(Document).ready(function(){
+			$('.btn-login').click(function(){
+				$('.modal').css('display', 'block');
+				$('.modal-background').css('display', 'block');
+			});
+		});
+		$('.modal-close').click(function(){
+			$('.modal').css('display', 'none');
+			$('.modal-background').css('display', 'none');
+		});
+	</script>
+</body>
+</html>
