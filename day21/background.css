@@ -1,0 +1,47 @@
+@charset 'utf-8';
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.bg {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url('../images/IMG_9315.jpg');
+    background-size: cover;
+    background-position: 50% 50%;
+    animation-name: back;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    opacity: 0.6;
+}
+
+body {
+    background-color: black;
+}
+/* .animation {
+    font-size: 40px;
+    animation-name: ani;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+} */
+
+@keyframes ani{
+    0% {color:black;}
+    25% {color:red;}
+    50% {color: blue;}
+    75% {color:green;}
+    100% {color:black;}
+}
+
+@keyframes back{
+    0% { background-image: url('../images/IMG_9315.jpg')}
+    25% { background-image: url('../images/IMG_9032.jpg')}
+    50% { background-image: url('../images/IMG_9999.jpg')}
+    75% { background-image: url('../images/IMG_8821.jpg')}
+    100% { background-image: url('../images/IMG_9315.jpg')}
+}
