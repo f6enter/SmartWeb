@@ -1,0 +1,107 @@
+@charset 'utf-8';
+
+body {
+    background-color: black;
+}
+
+.wrap {
+    text-align: center;
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url('../images/main_visual_img01.gif');
+    background-size: cover;
+    background-position: 50% 50%;
+    animation-name: back;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    opacity: 0.4;
+}
+
+span {
+    color: yellow;
+}
+
+p {
+    opacity: 0;
+    animation-name: open;
+    animation-duration: 4s;
+    animation-iteration-count: none;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    font-size: 40px;
+    height: 200px;
+    overflow: auto;
+}
+
+.box>a {
+    display: block;
+}
+
+button {
+    border: 1px solid yellow;
+    height: 30px;
+    color: white;
+    background-color: black;
+}
+
+button:hover {
+    color: blue;
+}
+
+p::-webkit-scrollbar {
+    display: none;
+}
+
+nav::after {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+.ham-menu {
+    float: right;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.sidebar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    /* 화면 밖에 위치하게 하여 안보이게 함. (width: 200px이기때문에 -200px로 설정) */
+    right: -200px;
+    width: 200px;
+    background-color: white;
+    /* 컨텐츠 넓이 포함 되지 않게 하기 위해 */
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+
+.sidebar-close {
+    font-size: 30px;
+    float: right;
+}
+
+
+@keyframes open {
+    from { opacity: 0; }
+    to { opacity: 1; }
+    /* 0% {opacity: 0.2;}
+    50% {opacity: 0.4;}
+    100% {opacity: 0.8;} */
+}
+
+@keyframes back{
+    0% { background-image: url('../images/main_visual_img01.gif')}
+    20% { background-image: url('../images/main_visual_img02.gif')}
+    40% { background-image: url('../images/main_visual_img03.gif')}
+    60% { background-image: url('../images/main_visual_img04.gif')}
+    80% { background-image: url('../images/main_visual_img05.gif')}
+    100% { background-image: url('../images/main_visual_img01.gif')}
+}
+
