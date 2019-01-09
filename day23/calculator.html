@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+    </head>
+    <style>
+        .div-input {
+            text-align: right;
+            border: 1px solid black;
+            height: 80px;
+            width: 200px;
+            box-sizing: border-box;
+        }
+        #dataStr {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        #dataNum {
+            font-size: 35px;
+        }
+        input {
+            width: 180px;
+            border: none;
+            outline: none;
+            text-align: right;
+        }
+        .div-row {
+            display: flex;
+        }
+        .div-btn {
+            box-sizing: border-box;
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            font-size: 35px;
+            line-height: 48px;
+            text-align: center;
+            cursor: pointer;
+            background-color: white;
+        }
+        .div-btn:hover {
+            background-color: gainsboro;
+        }
+        .div-btn:active {
+            background-color: gray;
+        }
+    </style>
+    <body>
+        <div class="div-input">
+            <input type="text" readonly id="dataStr"><br>
+            <input type="text" readonly value="0" id="dataNum"><br>
+        </div>
+
+        <div class="div-row">
+            <div class="div-btn num">7</div>
+            <div class="div-btn num">8</div>
+            <div class="div-btn num">9</div>
+            <div class="div-btn op">x</div>
+        </div>
+        <div class="div-row">
+            <div class="div-btn num">4</div>
+            <div class="div-btn num">5</div>
+            <div class="div-btn num">6</div>
+            <div class="div-btn op">-</div>
+        </div>
+        <div class="div-row">
+            <div class="div-btn num">1</div>
+            <div class="div-btn num">2</div>
+            <div class="div-btn num">3</div>
+            <div class="div-btn op">+</div>
+        </div>
+        <div class="div-row">
+            <div class="div-btn op">/</div>
+            <div class="div-btn num">0</div>
+            <div class="div-btn num">.</div>
+            <div class="div-btn op">=</div>
+        </div>
+
+        <script>
+            var pointCnt = 0;
+            var op = "+"; // 눌린 연산자를 저장하는 변수
+            var isPushOp = false; // 연산자가 눌린적이 있는지 없는지 확인하는 변수
+            var input = $('#dataNum');
+            var num1 = 0;
+            var result = 0;
+            var str=""; // 최종 문자열
+            var strTmp=""; // 임시 문자열
+
+            $('.num').click(function(){
+                var val = $(this).text();
+                // 연산자가 눌린 다음에 숫자를 누른 경우
+                if(isPushOp) {
+                    input.val('0');
+                    isPushOp = false;
+                }
+                // . 이 처음 눌린게 아니면 작업을 종료하여 . 이 input창에 안찍히도록 함.
+                if(val == ".") {
+                    // . 이 처음 눌리면 점이 눌릴 횟수를 1로 늘림.
+                    if(pointCnt != 0) return;
+                    pointCnt++;
+                }
+                if(input.val() == '0')
+                    input.val(val);
+                else
+                input.val(input.val()+val);
+                str = strTmp;
+            });
+            
+            $('.op').click(function(){
+                //$('#input2').val($(input).val()+op); ej
+                pointCnt=0; // 첫번째 입력값 소수, 두번째 입력값 소수일때 .찍기
+                var tmp = parseFloat(input.val());
+                if(!isPushOp || op == "=") {
+                    switch(op) {
+                    case '+': num1 = num1 + tmp; break;
+                    case '-': num1 = num1 - tmp; break;
+                    case '/': num1 = num1 / tmp; break;
+                    case '*': num1 = num1 * tmp; break;
+                    case '=': num1 = tmp; break;
+                    }
+                    input.val(num1);
+                    str = str + tmp;
+                }
+                op = $(this).text();
+                strTmp = str + op;
+                
+                $('#dataStr').val(strTmp);
+                if(op == "=") {
+                    str="";
+                    strTmp="";
+                }
+
+                isPushOp = true;
+            });
+        </script>
+    </body>
+</html>
