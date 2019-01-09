@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>ex01_parents</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+    </head>
+    <body>
+        국가
+        <input type="text" id="inputCountry" readonly>
+        <button id="countrySearch">조회</button><br>
+
+        <script>
+            $('#countrySearch').click(function(){
+                window.open('ex01_child.html','child', 'width=400, Height=500');
+            });
+        </script>
+    </body>
+</html>
