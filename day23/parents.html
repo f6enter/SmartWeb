@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>부모 윈도우</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+    </head>
+    <body>
+        <button id="btnChild">자식창 열기</button><br>
+        <input type="text" id="input">
+        <button id="btnData">데이터 전달</button><br>
+        <input type="text" id="width" value="">
+        <input type="text" id="height" value="">
+        <button id="btnChild2">자식창2</button>
+        <script>
+            var childWin;
+            var childWin2;
+            $('#btnChild').click(function(){
+                childWin = window.open('child.html','child', 'width=400, Height=500');
+            });  
+            $('#btnData').click(function(){
+                childWin.document.getElementById('divData').value = document.getElementById('input').value;
+            });
+
+            $('#btnChild2').click(function(){
+                var width = document.getElementById('width').value;
+                var height = document.getElementById('height').value;
+                //var w = $('#width').val();
+
+                if(width==""||parseInt(width) <400)
+                    width = 400;
+                if(height==""||parseInt(height) <400)
+                    height = 400;    
+                childWin2 = window.open('child2.html','child2', 'width='+width+', height='+height);
+            });
+        </script>
+    </body>
+</html>

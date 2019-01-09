@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>ex01_parents</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+    </head>
+    <body>
+        <!-- <button id="btnChild">자식창 열기</button><br> -->
+
+        <input type="text" id="data1" name="data1">
+        <button name="data1">데이터 전달1</button><br>
+
+        <input type="text" id="data2" name="data2">
+        <button name="data2">데이터 전달2</button><br>
+
+        <input type="text" id="getId">
+
+        <script>
+            $('button').click(function(){
+                $('#getId').val($(this).prop('name'));
+                console.log($('#getId').val());
+                window.open('ex01_child.html','child', 'width=400, Height=500');
+            });
+            // });
+        </script>
+    </body>
+</html>
