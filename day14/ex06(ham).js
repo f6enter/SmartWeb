@@ -1,0 +1,10 @@
+$(document).ready(function(){
+    $('#ham').click(function(){
+        $('#sub-menu').toggleClass('display-block');
+    });
+    $(window).resize(function(){
+        if($(window).width()>640){
+            $('#sub-menu').removeClass('display-block');
+        }
+    });
+});
