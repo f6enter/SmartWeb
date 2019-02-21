@@ -1,0 +1,49 @@
+@charset 'utf-8';
+
+*{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-size:14px;
+    margin: 0px;
+    padding: 0px;
+    font-family: Dotum,'돋움',Helvetica,"Apple SD Gothic Neo",sans-serif;
+}
+
+body {
+    background-color: #fff;
+    font-family: 'Georgia','Nanum Gothic';
+    color: #333;    
+}
+
+ul, ol {
+    list-style: none;
+}
+
+div {
+    border: solid 1px black;
+    display: block;
+}
+
+.container{
+    width: 1170px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+
+.navbar-header {
+    position: relative;
+    float: left;
+    vertical-align: top;
+}
+
+.collapse {
+    padding-left: 200px;
+}
+
+
+
+
