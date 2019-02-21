@@ -34,15 +34,58 @@ div {
     display: block;
 }
 
+.container::after {
+    clear:both;
+    content:"";
+    display: block;
+}
+
 .navbar-header {
     position: relative;
     float: left;
     vertical-align: top;
 }
 
-.collapse {
-    padding-left: 200px;
+.navbar-brand {
+    display: inline-block;
+    padding: 0 15px;
+    line-height: 87px;
 }
+
+.collapse {
+    width: 1140px;
+    height: 90px;
+    max-height: 340px;
+    padding-left: 200px;
+    padding-right: 15px;
+    margin-left: 0;
+    margin-right: -15px;
+    display: block
+}
+
+.navbar-nav {
+    float: right;
+    margin: 0;
+    height: 90px;
+}
+
+.navbar-nav>li {
+    position: relative;
+    display: inline-block;
+}
+
+ul.navbar-nav>li>a {
+    text-decoration:none;
+    line-height: 87px;
+    color: #aaa;
+    font-family: Georgia;
+    font-size: 13px;
+    letter-spacing: .1em;
+    padding: 0 25px;
+    vertical-align: middle;
+}
+
+
 
 
 
