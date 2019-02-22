@@ -1,0 +1,154 @@
+@charset 'utf-8';
+
+*{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    /* font-size:14px; */
+    margin: 0px;
+    padding: 0px;
+    /* font-family: Dotum,'돋움',Helvetica,"Apple SD Gothic Neo",sans-serif; */
+}
+
+body {
+    background-color: #fff;
+    font-family: 'Georgia','Nanum Gothic', 'Abel';
+    color: #333;    
+}
+
+ul, ol {
+    list-style: none;
+}
+
+/* div {
+    border: solid 1px black;
+    display: block;
+} */
+
+.dsgn-body {
+    background-attachment: fixed;
+    height: 100%;
+}
+
+header {
+    overflow: hidden;
+    background-color: #fff;
+    /* opacity: 0.4; */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.container{
+    width: 1170px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+
+.container::after {
+    clear:both;
+    content:"";
+    display: block;
+}
+
+.navbar-header {
+    position: relative;
+    float: left;
+    vertical-align: top;
+}
+
+.navbar-brand {
+    text-decoration:none;
+    display: inline-block;
+    padding: 0 15px;
+    line-height: 87px;
+}
+
+ .navbar-brand>span {
+    font-family: 'Abel';
+    color: #9e9e9e;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: .1em;
+ }
+
+.collapse {
+    width: 1140px;
+    height: 90px;
+    max-height: 340px;
+    padding-left: 200px;
+    padding-right: 15px;
+    margin-left: 0;
+    margin-right: -15px;
+    display: block
+}
+
+.navbar-nav {
+    float: right;
+    margin: 0;
+    height: 90px;
+}
+
+.navbar-nav>li {
+    position: relative;
+    display: inline-block;
+}
+
+ul.navbar-nav>li>a {
+    text-decoration:none;
+    line-height: 87px;
+    color: #aaa;
+    font-family: 'Abel';
+    font-size: 17px;
+    letter-spacing: .01em;
+    padding: 0 25px;
+    vertical-align: middle;
+}
+
+ul.navbar-nav>li>a:hover { 
+    color: #cccccf;
+  }
+
+
+.active {
+    content: '';
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    padding: 0 25px;
+    display: inline-block;
+    background-color: transparent;
+    background-clip: content-box;
+}
+
+.carousel-indicators {
+    top: 0px;
+    margin-top: 0px;
+    position: relative;
+    height: 100%;
+}
+
+.carousel-inner {
+    height: 100%;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.item {
+    opacity: 1;
+    height: 100%;
+    background-color: #000;
+    left: 0;
+}
+
+
+
+
