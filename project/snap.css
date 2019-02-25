@@ -1,9 +1,9 @@
 @charset 'utf-8';
 
-div {
+/* div {
     border: solid 1px black;
     display: block;
-}
+} */
 
 .link-to-snap {
     position: relative;
